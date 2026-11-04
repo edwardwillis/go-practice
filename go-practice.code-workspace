@@ -1,0 +1,64 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"go.useLanguageServer": true,
+		"go.formatTool": "gofmt",
+		"go.lintTool": "golangci-lint",
+		"go.lintOnSave": "package",
+		"go.vetOnSave": "package",
+		"go.testFlags": ["-v"],
+		"go.testOnSave": false,
+		"go.coverOnSave": false,
+		"editor.formatOnSave": true,
+		"[go]": {
+			"editor.defaultFormatter": "golang.go",
+			"editor.insertSpaces": false,
+			"editor.formatOnSave": true,
+			"editor.codeActionsOnSave": {
+				"source.organizeImports": "explicit"
+			}
+		},
+		"gopls": {
+			"ui.semanticTokens": true
+		},
+		"files.exclude": {
+			"**/.git": true
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"golang.go",
+			"editorconfig.editorconfig"
+		]
+	},
+	"tasks": {
+		"version": "2.0.0",
+		"tasks": [
+			{
+				"label": "test",
+				"type": "shell",
+				"command": "make test",
+				"group": { "kind": "test", "isDefault": true },
+				"problemMatcher": ["$go"]
+			},
+			{
+				"label": "test-verbose",
+				"type": "shell",
+				"command": "make test-verbose",
+				"group": "test",
+				"problemMatcher": ["$go"]
+			},
+			{
+				"label": "lint",
+				"type": "shell",
+				"command": "make lint",
+				"group": "none",
+				"problemMatcher": ["$go"]
+			}
+		]
+	}
+}
